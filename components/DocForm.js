@@ -5,10 +5,6 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import * as yup from 'yup';
-// import InputGroup from 'react-bootstrap/InputGroup';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
-
 
 class DocForm extends React.Component {
   constructor(props) {
@@ -123,12 +119,6 @@ class DocForm extends React.Component {
         return obj;
       }, {});
 
-    // this.state = {
-    //   dependedFields: depends,
-    //   multiple: multi,
-    //   visibleFields: filtered
-    // }
-
     this.state.dependedFields = depends;
     this.state.multiple = multi;
     this.state.visibleFields = filtered;
@@ -136,8 +126,6 @@ class DocForm extends React.Component {
     this.state.errors = {};
 
     this.validationHandler = this.validationHandler.bind(this);
-
-    // console.log('Initial State', this.state);
   }
 
   componentDidMount() {
@@ -158,9 +146,7 @@ class DocForm extends React.Component {
   }
 
   render() {
-
     let schema = yup.object().shape(this.state.validationSchema);
-    // console.log(this.state.validationSchema);
     return <Form>
 
       {/*Рендерим блоки*/}
@@ -341,7 +327,8 @@ class DocForm extends React.Component {
                         type="invalid">{this.state.errors[field.id] ? this.state.errors[field.id][0] : ''}</Form.Control.Feedback>
                       </div>
                       : field.type === 'list'
-                        ? <div><Form.Control as="select"
+                        ? <div>
+                          <Form.Control as="select"
                                              placeholder={field.placeholder ? field.placeholder : ""}
                                              required={!!field.required}
                                              isInvalid={!!this.state.errors[field.id]}
@@ -443,11 +430,8 @@ class DocForm extends React.Component {
                                                      }
                                                    }
                                                  })
-
                                                }
 
-
-                                               // let obj = this.state.visibleFields;
                                                visObj[field.id] = e.target.value;
                                                this.setState({
                                                  visibleFields: visObj,
@@ -580,7 +564,6 @@ class DocForm extends React.Component {
 
                                   if (opt.valueFrom) {
                                     visObj[field.id] = this.state[opt.valueFrom] || '';
-                                    // opt.value = this.state[opt.valueFrom] || '';
                                     this.setState({
                                       visibleFields: visObj,
                                       [field.id]: this.state[opt.valueFrom] || ''
@@ -751,8 +734,6 @@ class DocForm extends React.Component {
               </Col>;
             })}
           </Form.Row>
-
-
         </div>
       })}
       <Button type="submit" onClick={(e) => {
