@@ -2,30 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c6c96ab-39ef-46bf-812a-dadc30c75b84" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.babelrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/DocForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Layout.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/[document].js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/Lato/Lato-Black.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/Lato/Lato-BlackItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/Lato/Lato-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/Lato/Lato-BoldItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/Lato/Lato-Italic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/Lato/Lato-Light.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/Lato/Lato-LightItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/Lato/Lato-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/Lato/Lato-Thin.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/Lato/Lato-ThinItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/Lato/OFL.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/styles.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/head.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/head.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/DocForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/DocForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/styles.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +63,7 @@
       <workItem from="1594931632945" duration="3000" />
       <workItem from="1594931653955" duration="8300000" />
       <workItem from="1595266590120" duration="8285000" />
-      <workItem from="1595408697022" duration="12930000" />
+      <workItem from="1595408697022" duration="14875000" />
     </task>
     <servers />
   </component>

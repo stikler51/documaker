@@ -162,6 +162,7 @@ class DocForm extends React.Component {
     let schema = yup.object().shape(this.state.validationSchema);
     // console.log(this.state.validationSchema);
     return <Form>
+
       {/*Рендерим блоки*/}
       {this.props.schema.fieldBlocks.map((block, index) => {
         return <div id={block.id}
@@ -180,6 +181,7 @@ class DocForm extends React.Component {
           <Form.Row>
             {block.fields.map((field, index) => {
               let popover;
+              let reqAttr = <span className="req-sign">*</span>;
               // получаем количество колонок (по умолчанию 1)
               let cols = block.cols || 1;
 
@@ -261,8 +263,10 @@ class DocForm extends React.Component {
                   : <Form.Group controlId={field.id}>
                     {/*Рендерится название поля и всплывающая подсказка*/}
                     <Form.Label>
-                      {field.title && field.type !== 'checkbox' ? field.title : ''}
-
+                      <div>
+                        {field.title && field.type !== 'checkbox' ? `${field.title}` : ''}
+                        {field.required && field.title && field.type !== 'checkbox' ? reqAttr : ''}
+                      </div>
                       {field.description && field.type !== 'checkbox' ?
                         <OverlayTrigger trigger={['hover', 'focus']} placement="right"
                                         overlay={popover}>
@@ -613,117 +617,118 @@ class DocForm extends React.Component {
                             </div>
                           })
                           : field.type === 'checkbox'
-                            ? <div className="radio-wrapper"><Form.Check
-                              type="checkbox"
-                              id={field.id}
-                              label={field.title}
-                              value={field.value}
-                              required={!!field.required}
-                              isInvalid={!!this.state.errors[field.id]}
-                              dependencies={field.dependencies}
-                              feedback={this.state.errors[field.id] || ''}
-                              onChange={async (e) => {
-                                e.persist();
-                                let dependedFields = e.target.getAttribute('dependencies');
-                                let visObj = this.state.visibleFields;
+                            ? <div className="radio-wrapper">
+                                <Form.Check
+                                  type="checkbox"
+                                  id={field.id}
+                                  label={<p>{field.title}<span className="req-sign">*</span></p>}
+                                  value={field.value}
+                                  required={!!field.required}
+                                  isInvalid={!!this.state.errors[field.id]}
+                                  dependencies={field.dependencies}
+                                  feedback={this.state.errors[field.id] || ''}
+                                  onChange={async (e) => {
+                                    e.persist();
+                                    let dependedFields = e.target.getAttribute('dependencies');
+                                    let visObj = this.state.visibleFields;
 
-                                let errors = [];
+                                    let errors = [];
 
-                                if (this.state.validationSchema[field.id]) {
-                                  await schema.validateAt(field.id, {[field.id]: e.target.checked}).catch(function (err) {
-                                    errors = err.errors;
-                                  });
-                                }
+                                    if (this.state.validationSchema[field.id]) {
+                                      await schema.validateAt(field.id, {[field.id]: e.target.checked}).catch(function (err) {
+                                        errors = err.errors;
+                                      });
+                                    }
 
-                                if (errors.length) {
-                                  this.validationHandler(errors, field.id)
-                                } else {
-                                  let allErrors = this.state.errors;
-                                  delete allErrors[field.id];
+                                    if (errors.length) {
+                                      this.validationHandler(errors, field.id)
+                                    } else {
+                                      let allErrors = this.state.errors;
+                                      delete allErrors[field.id];
 
-                                  this.setState({
-                                    errors: allErrors
-                                  })
-                                }
+                                      this.setState({
+                                        errors: allErrors
+                                      })
+                                    }
 
 
+                                    if (e.target.checked) {
+                                      if (dependedFields) {
+                                        dependedFields = dependedFields.split(',');
+                                        dependedFields.map(id => {
+                                          let el = document.body.querySelector(`.${id}-hidden`);
+                                          if (el) {
+                                            el.removeAttribute('hidden');
 
-                                if (e.target.checked) {
-                                  if (dependedFields) {
-                                    dependedFields = dependedFields.split(',');
-                                    dependedFields.map(id => {
-                                      let el = document.body.querySelector(`.${id}-hidden`);
-                                      if (el) {
-                                        el.removeAttribute('hidden');
+                                            if (!el.classList.contains('form-block')) {
+                                              visObj[field.id] = this.state[field.id] || '';
+                                            } else {
+                                              this.props.schema.fieldBlocks.map(block => {
+                                                if (block.id === id) {
+                                                  block.fields.map(field => {
+                                                    if (field.id) {
+                                                      visObj[field.id] = this.state[field.id] || '';
+                                                    }
+                                                  })
+                                                }
 
-                                        if (!el.classList.contains('form-block')) {
-                                          visObj[field.id] = this.state[field.id] || '';
-                                        } else {
-                                          this.props.schema.fieldBlocks.map(block => {
-                                            if (block.id === id) {
-                                              block.fields.map(field => {
-                                                if (field.id) {
-                                                  visObj[field.id] = this.state[field.id] || '';
+                                              })
+                                            }
+                                          }
+                                        })
+                                      }
+
+                                      visObj[field.id] = e.target.value;
+                                      this.setState({
+                                        visibleFields: visObj,
+                                        [field.id]: e.target.value
+                                      })
+
+                                      this.props.changeHandler(this.state.visibleFields);
+
+                                    } else {
+
+                                      if (dependedFields) {
+                                        dependedFields = dependedFields.split(',');
+                                        dependedFields.map(id => {
+                                          let el = document.body.querySelector(`.${id}-hidden`);
+                                          if (el) {
+                                            el.setAttribute('hidden', true);
+
+                                            if (visObj[field.id]) {
+                                              delete visObj[field.id];
+                                            }
+
+                                            if (el.classList.contains('form-block')) {
+                                              this.props.schema.fieldBlocks.map(block => {
+                                                if (block.id === id) {
+                                                  block.fields.map(field => {
+                                                    if (visObj[field.id]) {
+                                                      delete visObj[field.id]
+                                                    }
+                                                  })
                                                 }
                                               })
                                             }
-
-                                          })
-                                        }
+                                          }
+                                        })
                                       }
-                                    })
-                                  }
 
-                                  visObj[field.id] = e.target.value;
-                                  this.setState({
-                                    visibleFields: visObj,
-                                    [field.id]: e.target.value
-                                  })
+                                      visObj[field.id] = field.defaultValue || '';
+                                      this.setState({
+                                        visibleFields: visObj,
+                                        [field.id]: field.defaultValue || ''
+                                      })
 
-                                  this.props.changeHandler(this.state.visibleFields);
-
-                                } else {
-
-                                  if (dependedFields) {
-                                    dependedFields = dependedFields.split(',');
-                                    dependedFields.map(id => {
-                                      let el = document.body.querySelector(`.${id}-hidden`);
-                                      if (el) {
-                                        el.setAttribute('hidden', true);
-
-                                        if (visObj[field.id]) {
-                                          delete visObj[field.id];
-                                        }
-
-                                        if (el.classList.contains('form-block')) {
-                                          this.props.schema.fieldBlocks.map(block => {
-                                            if (block.id === id) {
-                                              block.fields.map(field => {
-                                                if (visObj[field.id]) {
-                                                  delete visObj[field.id]
-                                                }
-                                              })
-                                            }
-                                          })
-                                        }
-                                      }
-                                    })
-                                  }
-
-                                  visObj[field.id] = field.defaultValue || '';
-                                  this.setState({
-                                    visibleFields: visObj,
-                                    [field.id]: field.defaultValue || ''
-                                  })
-
-                                  this.props.changeHandler(this.state.visibleFields);
-                                }
-                              }}
-                            />
+                                      this.props.changeHandler(this.state.visibleFields);
+                                    }
+                                  }}
+                                />
                               {field.description ?
                                 <OverlayTrigger trigger={['hover', 'focus']} placement="right"
                                                 overlay={<Popover id={`${field.id}-popover-${index}`}>
-                                                  <Popover.Content dangerouslySetInnerHTML={{__html: field.description}}>
+                                                  <Popover.Content
+                                                    dangerouslySetInnerHTML={{__html: field.description}}>
                                                   </Popover.Content>
                                                 </Popover>}>
 
