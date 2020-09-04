@@ -1,0 +1,72 @@
+.progressStatus {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+
+  .label {
+    font-size: 16px;
+    line-height: 19px;
+    color: #192332;
+    opacity: 0.7;
+  }
+
+  .percent {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: right;
+    color: #00B16A;
+  }
+}
+
+.openSidePanel {
+  display: none;
+}
+.progress {
+  height: 6px;
+  background-color: #00B16A15;
+}
+
+@media screen and (max-width: 767px) {
+  .progressStatus {
+    order: 2;
+    margin: 0 15px 0 24px;
+    .label {
+      display: none;
+    }
+  }
+
+  .progress {
+    order: 1;
+    flex-grow: 1;
+  }
+
+  .openSidePanel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px!important;
+    height: 30px;
+    background: #4183D710;
+    border-radius: 5px;
+    border: none;
+    order: 3;
+
+    &:active, &:focus {
+      background: #4183D720;
+      box-shadow: none;
+    }
+
+    svg {
+      transform: rotate(90deg);
+      transition: 0.3s;
+    }
+
+    &.opened {
+      svg {
+        transform: rotate(270deg);
+      }
+    }
+  }
+}

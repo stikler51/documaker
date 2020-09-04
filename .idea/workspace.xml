@@ -2,8 +2,46 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c6c96ab-39ef-46bf-812a-dadc30c75b84" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/components/DocumentPreview.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Error.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Loading.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Progress.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/SvgWrapper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/PDFHelper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/base64Buffer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/api/pdf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/confidential.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/contact.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/terms.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/redux/actions/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/redux/reducers/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/redux/store.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/redux/types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/arrow.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/check.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/close.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/plus.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/preview.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/privacy.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/problem.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/search.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/support.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/form.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/mainPage.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/progress.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/staticPage.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/DocForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/DocForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/[document].js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/[document].js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/favicon-16x16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/favicon-32x32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/favicon-mask.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/favicon.ico" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/styles.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +101,26 @@
       <workItem from="1594931632945" duration="3000" />
       <workItem from="1594931653955" duration="8300000" />
       <workItem from="1595266590120" duration="8285000" />
-      <workItem from="1595408697022" duration="14875000" />
+      <workItem from="1595408697022" duration="16222000" />
+      <workItem from="1595613210958" duration="15456000" />
+      <workItem from="1595874507282" duration="10691000" />
+      <workItem from="1595944680410" duration="2435000" />
+      <workItem from="1597044923682" duration="14688000" />
+      <workItem from="1597256160623" duration="4518000" />
+      <workItem from="1597338952740" duration="12706000" />
+      <workItem from="1597681986974" duration="10147000" />
+      <workItem from="1597769480555" duration="15315000" />
+      <workItem from="1597856369858" duration="13231000" />
+      <workItem from="1597944392489" duration="13097000" />
+      <workItem from="1598289575408" duration="13599000" />
+      <workItem from="1598461929936" duration="16332000" />
+      <workItem from="1598617477471" duration="6295000" />
+      <workItem from="1598799200254" duration="56000" />
+      <workItem from="1598866264368" duration="11515000" />
+      <workItem from="1598968424677" duration="6202000" />
+      <workItem from="1599065437171" duration="18269000" />
+      <workItem from="1599155701128" duration="11687000" />
+      <workItem from="1599218364747" duration="17796000" />
     </task>
     <servers />
   </component>
@@ -79,9 +136,17 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="535" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1594155935441" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1594850420705">
+    <state x="632" y="133" key="RollbackChangesDialog" timestamp="1595963662119">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1594850420705" />
+    <state x="632" y="133" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1595963662119" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1598866906495">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1598866906495" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1599224470353">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1599224470353" />
   </component>
 </project>

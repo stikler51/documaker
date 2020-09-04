@@ -1,0 +1,24 @@
+.backToMain {
+  display: flex;
+  align-items: center;
+  margin-bottom: 17px;
+  svg {
+    margin-right: 15px;
+    path {
+      fill: #4183D7;
+      transition: 0.3s;
+    }
+  }
+
+  &:hover {
+    svg {
+      path {
+        fill: #00B16A;
+      }
+    }
+  }
+}
+
+.documentDescription {
+  margin-bottom: 20px;
+}
